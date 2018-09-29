@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Killer-Sudoku")]
+[assembly: AssemblyTitle("Killer Sudoku")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Killer-Sudoku")]
+[assembly: AssemblyProduct("Killer Sudoku")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("727c6a91-c7aa-4bad-942a-636ccf2ad2ef")]
+[assembly: Guid("47917135-9819-4ff4-ada0-f666dec0d771")]
 
 // Version information for an assembly consists of the following four values:
 //

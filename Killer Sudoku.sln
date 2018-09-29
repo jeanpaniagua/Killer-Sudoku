@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Killer-Sudoku", "Killer-Sudoku\Killer-Sudoku.csproj", "{727C6A91-C7AA-4BAD-942A-636CCF2AD2EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Killer Sudoku", "Killer Sudoku\Killer Sudoku.csproj", "{47917135-9819-4FF4-ADA0-F666DEC0D771}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{727C6A91-C7AA-4BAD-942A-636CCF2AD2EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{727C6A91-C7AA-4BAD-942A-636CCF2AD2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{727C6A91-C7AA-4BAD-942A-636CCF2AD2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{727C6A91-C7AA-4BAD-942A-636CCF2AD2EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47917135-9819-4FF4-ADA0-F666DEC0D771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47917135-9819-4FF4-ADA0-F666DEC0D771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47917135-9819-4FF4-ADA0-F666DEC0D771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47917135-9819-4FF4-ADA0-F666DEC0D771}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {217DDBE8-EADB-478A-A591-FFDDB9D7CCA3}
+		SolutionGuid = {86DE1DAA-AB13-4E70-9482-E2C757572BF7}
 	EndGlobalSection
 EndGlobal
