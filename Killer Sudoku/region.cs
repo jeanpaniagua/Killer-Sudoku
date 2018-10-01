@@ -122,5 +122,15 @@ namespace Killer_Sudoku
         {
             return zona;
         }
+
+        public void setResultado(int resultado)
+        {
+            this.resultado = resultado;
+        }
+
+        public int getResultado()
+        {
+            return resultado;
+        }
     }
 }
