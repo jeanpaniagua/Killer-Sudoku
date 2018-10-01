@@ -2,9 +2,9 @@ C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\bin\Debug\Kille
 C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\bin\Debug\Killer Sudoku.exe
 C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\bin\Debug\Killer Sudoku.pdb
 C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\obj\Debug\Killer Sudoku.csprojAssemblyReference.cache
-C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\obj\Debug\Killer_Sudoku.Form1.resources
 C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\obj\Debug\Killer_Sudoku.Properties.Resources.resources
 C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\obj\Debug\Killer Sudoku.csproj.GenerateResource.cache
 C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\obj\Debug\Killer Sudoku.csproj.CoreCompileInputs.cache
 C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\obj\Debug\Killer Sudoku.exe
 C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\obj\Debug\Killer Sudoku.pdb
+C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\obj\Debug\Killer_Sudoku.Interfaz.resources
