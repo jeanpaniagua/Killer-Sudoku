@@ -16,5 +16,15 @@ namespace Killer_Sudoku
             this.tamanho = tamanho;
             tableroMatriz = new casilla[tamanho,tamanho];
         }
+
+        public void setCasilla(byte fila, byte columna, casilla casilla)
+        {
+            this.tableroMatriz[fila, columna] = casilla;
+        }
+
+        public casilla getCasilla(byte fila, byte columna)
+        {
+            return tableroMatriz[fila, columna];
+        }
     }
 }
