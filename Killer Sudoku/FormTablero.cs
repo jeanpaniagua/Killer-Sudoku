@@ -22,17 +22,18 @@ namespace Killer_Sudoku
         {
             byte tamanhoTablero = Program.tamanho;
 
-            TableLayoutPanel rowLayout = new TableLayoutPanel();
+            TableLayoutPanel tablero = new TableLayoutPanel();
 
-            rowLayout.RowCount = tamanhoTablero;
-            rowLayout.ColumnCount = tamanhoTablero;
+            tablero.RowCount = tamanhoTablero;
+            tablero.ColumnCount = tamanhoTablero;
 
-            rowLayout.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            tablero.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
 
-            //760 para 5x5 770 par 19x19
             byte tamanhoCelda = (byte)((800 - 7* tamanhoTablero) / tamanhoTablero);
 
-            tablePanel.Controls.Add(rowLayout, 1,0);
+            tablePanel.Controls.Add(tablero, 1,0);
+
+
 
             int count = 0;
 
@@ -48,6 +49,7 @@ namespace Killer_Sudoku
                     panel.Width = tamanhoCelda;
                     panel.Height = tamanhoCelda;
                     panel.BackColor = Color.GreenYellow;
+
                     var label = new Label();
 
                     label.Name = "" + count + "";
@@ -62,12 +64,12 @@ namespace Killer_Sudoku
 
                     panel.Controls.Add(label2);
 
-                    rowLayout.Controls.Add(panel, j, i);
+                    tablero.Controls.Add(panel, j, i);
 
 
                 }
 
-                rowLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+                tablero.Dock = System.Windows.Forms.DockStyle.Fill;
              
             }
 

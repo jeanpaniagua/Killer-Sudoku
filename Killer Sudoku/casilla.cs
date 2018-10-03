@@ -9,7 +9,10 @@ namespace Killer_Sudoku
     class casilla
     {
         private byte valor;
+        private String color;
+        private String operador;
         private region region;
+        
 
         public casilla(byte valor, region region)
         {
@@ -35,6 +38,26 @@ namespace Killer_Sudoku
         public region getRegion()
         {
             return region;
+        }
+
+        public void setOperador(String operador)
+        {
+            this.color = operador;
+        }
+
+        public String getOperador()
+        {
+            return operador;
+        }
+
+        public void setColor(String color)
+        {
+            this.color = color;
+        }
+
+        public String getColor()
+        {
+            return color;
         }
     }
 }
