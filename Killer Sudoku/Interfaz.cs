@@ -14,75 +14,12 @@ namespace Killer_Sudoku
     public partial class Interfaz : Form
     {
 
-        private void cargarMatriz()
-        {
-            byte tamanhoTablero = 19;
-
-            TableLayoutPanel rowLayout = new TableLayoutPanel();
-
-            rowLayout.RowCount = tamanhoTablero;
-            rowLayout.ColumnCount = tamanhoTablero;
-
-            rowLayout.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-
-            //850 para 5x5 770 par 19x19
-            byte tamanhoCelda = (byte)(850 / tamanhoTablero);
-
-           this.Invoke((MethodInvoker)delegate ()
-            {
-                tableTablero.Controls.Add(rowLayout, 1, 1);
-            });
-
-            int count = 0;
-
-            TableLayoutPanel[] tableroCeldas = new TableLayoutPanel[tamanhoTablero* tamanhoTablero];
-
-            for (int i = 0; i < tamanhoTablero; i++)
-            {
-                for (int j = 0; j < tamanhoTablero; j++)
-                {
-                    count++;
-
-                    var panel = new FlowLayoutPanel();
-                    panel.Width = tamanhoCelda;
-                    panel.Height = tamanhoCelda;
-                    panel.BackColor = Color.GreenYellow;
-                    var label = new Label();
-
-                    label.Name = "" + count + "";
-                    label.Text = "" + count + "";
-
-                    panel.Controls.Add(label);
-
-                    var label2 = new Label();
-
-                    label2.Name = "" + count + "";
-                    label2.Text = "2_" + count + "";
-
-                    panel.Controls.Add(label2);
-
-                    this.Invoke((MethodInvoker)delegate ()
-                    {
-                        rowLayout.Controls.Add(panel, j, i);
-                    });
-
-
-
-                }
-                this.Invoke((MethodInvoker)delegate ()
-                {
-                    rowLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-                });
-            }
-
-        }
+        
         public Interfaz()
         {
             InitializeComponent();
 
         }
-
-        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -156,10 +93,64 @@ namespace Killer_Sudoku
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Thread matriz = new Thread(cargarMatriz);
-            matriz.Start();
-            //cargarMatriz();
-         
+
+            String value = comboBox1.Text;
+
+            switch (value)
+            {
+                case "5x5":
+                    Program.tamanho = 5;
+                    break;
+                case "6x6":
+                    Program.tamanho = 6;
+                    break;
+                case "7x7":
+                    Program.tamanho = 7;
+                    break;
+                case "8x8":
+                    Program.tamanho = 8;
+                    break;
+                case "9x9":
+                    Program.tamanho = 9;
+                    break;
+                case "10x10":
+                    Program.tamanho = 10;
+                    break;
+                case "11x11":
+                    Program.tamanho = 11;
+                    break;
+                case "12x12":
+                    Program.tamanho = 12;
+                    break;
+                case "13x13":
+                    Program.tamanho = 13;
+                    break;
+                case "14x14":
+                    Program.tamanho = 14;
+                    break;
+                case "15x15":
+                    Program.tamanho = 15;
+                    break;
+                case "16x16":
+                    Program.tamanho = 16;
+                    break;
+                case "17x17":
+                    Program.tamanho = 17;
+                    break;
+                case "18x18":
+                    Program.tamanho = 18;
+                    break;
+                case "19x19":
+                    Program.tamanho = 19;
+                    break;
+                default:
+                    Console.WriteLine("Debe seleccionar un valor");
+                    break;
+            }
+
+
+            FormTablero pTablero = new FormTablero();
+            pTablero.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -173,6 +164,11 @@ namespace Killer_Sudoku
         }
 
         private void button3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

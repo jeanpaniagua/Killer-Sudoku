@@ -8,15 +8,18 @@ namespace Killer_Sudoku
 {
     static class Program
     {
+        public static byte tamanho = 0;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Interfaz());
+
         }
     }
 }

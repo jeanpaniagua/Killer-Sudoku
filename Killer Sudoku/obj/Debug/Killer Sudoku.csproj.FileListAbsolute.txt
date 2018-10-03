@@ -8,3 +8,4 @@ C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\obj\Debug\Kille
 C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\obj\Debug\Killer Sudoku.pdb
 C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\obj\Debug\Killer_Sudoku.Interfaz.resources
 C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\obj\Debug\Killer Sudoku.csprojAssemblyReference.cache
+C:\Users\Jean Carlo\Documents\GitHub\Killer-Sudoku\Killer Sudoku\obj\Debug\Killer_Sudoku.FormTablero.resources
