@@ -69,10 +69,21 @@ namespace Killer_Sudoku
             Boolean completo = false;
             while (!completo)
             {
-                Random rnd = new Random();
-                byte next = (byte)rnd.Next(1, 8);
-                region region = new region(next);
-                //if(tablero.getCasilla(fila,columna));
+                if(fila == tamanho && columna == tamanho)
+                {
+                    completo = true;
+                    break;
+                }else if (columna == tamanho && fila != tamanho)
+                {
+                    columna = 0;
+                }
+                if (!tablero.getCasilla(fila, columna).getOcupada())
+                {
+                    Random rnd = new Random();
+                    byte next = (byte)(rnd.Next(0, 8) + 1);
+                    region region = new region(next);
+
+                }
 
             }
         }

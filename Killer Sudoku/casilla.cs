@@ -12,12 +12,23 @@ namespace Killer_Sudoku
         private String color;
         private String operador;
         private region region;
+        private Boolean ocupada;
         
-
         public casilla(byte valor, region region)
         {
             this.valor = valor;
             this.region = region;
+            this.ocupada = false;
+        }
+
+        public void setOcupada(Boolean bol)
+        {
+            this.ocupada = bol;
+        }
+
+        public Boolean getOcupada()
+        {
+            return ocupada;
         }
 
         public void setValor(byte valor)
