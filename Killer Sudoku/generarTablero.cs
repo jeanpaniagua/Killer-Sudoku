@@ -8,86 +8,120 @@ namespace Killer_Sudoku
 {
     class generarTablero
     {
-        private tablero tablero;
-        /* Piezas válidas
-        * 1)
-        * -
-        * -
-        * -
-        * -
-        * 
-        * 2) 
-        * -
-        * -
-        * - -
-        * 
-        * 3)
-        *   -
-        *   -
-        * - -
-        * 
-        * 4)
-        * - -
-        * - -
-        * 
-        * 5)
-        *  - -
-        * - -
-        * 
-        * 6)
-        * 
-        * - -
-        *   - -
-        * 
-        * 7)
-        * 
-        *   -
-        * - - -
-        * 
-        * 8
-        * 
-        * -
-        * 
-        * ----------------------------------------------------------------------------
-        * Un 0 en posición significa que la pieza no tiene ninguna rotación
-        * Un 1 significa una rotación en sentido del reloj, así sucesivamente hasta 3.
-        * 
-        * ----------------------------------------------------------------------------
-        * Por default el operador es una suma.
-        */
+        public tablero tablero;
+        private Boolean[,] disponibles;
+        private int regs = 0;
+        private static Random aleatorio = new Random();
 
         public generarTablero(byte tamanho)
         {
             tablero = new tablero(tamanho);
+            disponibles = new Boolean[tamanho, tamanho];
+            llenaDisponibles(tamanho);
             cargarRegiones(tamanho);
+            //cuenta();
+        }
+
+        private void cuenta()
+        {
+            int c = 0;
+            foreach(region reg in tablero.regiones)
+            {
+                if (reg != null)
+                {
+                    foreach (Coords co in reg.getPieza())
+                    {
+                        c++;
+                    }
+                }
+            }
+            Console.WriteLine("Total: " + c);
+        }
+
+        private void llenaDisponibles(byte tamanho)
+        {
+            for(int fila = 0; fila < tamanho; fila++)
+            {
+                for(int columna = 0; columna < tamanho; columna++)
+                {
+                    disponibles[fila, columna] = true;
+                }
+            }
         }
 
         private void cargarRegiones(byte tamanho)
         {
-            byte fila = 0;
-            byte columna = 0;
-            Boolean completo = false;
-            while (!completo)
+            for (int fila = 0; fila < tamanho; fila++)
             {
-                if(fila == tamanho && columna == tamanho)
+                for (int columna = 0; columna < tamanho; columna++)
                 {
-                    completo = true;
-                    break;
-                }else if (columna == tamanho && fila != tamanho)
-                {
-                    columna = 0;
+                    if (disponibles[fila, columna] == true)
+                    {
+                        int figura = aleatorio.Next(1, 9);
+                        Console.WriteLine("Va a crear pieza #" + figura);
+                        creaRegiones(tamanho, fila, columna, figura, 0);
+                    }
                 }
-                if (!tablero.getCasilla(fila, columna).getOcupada())
-                {
-                    Random rnd = new Random();
-                    byte next = (byte)(rnd.Next(0, 8) + 1);
-                    region region = new region(next);
-
-                }
-
             }
         }
 
-
+        private void creaRegiones(byte tamanho, int fila, int columna, int  figura, byte rot)
+        {
+            Console.WriteLine("Entra pieza #" + figura);
+            region region = new region(figura, new Coords(fila, columna), rot);
+            Boolean pasa = true;
+            foreach (Coords cord in region.getPieza())
+            {
+                if (cord != null)
+                {
+                    if (cord.getX() < 0 || cord.getY() < 0 || cord.getX() >= tamanho || cord.getY() >= tamanho)
+                    {
+                        pasa = false;
+                    }
+                    else if (!(disponibles[cord.getX(), cord.getY()]))
+                    {
+                        pasa = false;
+                    }
+                }
+            }
+            if (!pasa)
+            {
+                if (rot < 4)
+                {
+                    Console.WriteLine("No pasa. Entra ROT.");
+                    creaRegiones(tamanho, fila, columna, figura, (byte)(rot + 1));
+                }
+                else
+                {
+                    Random rnd = new Random();
+                    int next= aleatorio.Next(1, 9);
+                    Console.WriteLine("No pasa. Entra Nueva Fig #" + next);
+                    creaRegiones(tamanho, fila, columna, next, 0);
+                }
+            }
+            else if(pasa)
+            {
+                foreach (Coords cord in region.getPieza())
+                {
+                    if (cord != null)
+                    {
+                        Console.WriteLine("PASA!!");
+                        Console.WriteLine("X: " + cord.getX() + " Y: " + cord.getY());
+                        disponibles[cord.getX(), cord.getY()] = false;
+                        tablero.regiones[regs] = region;
+                        regs++;
+                    }
+                }
+            }
+            //for(int i = 0; i < tamanho; i++)
+            //{
+            //    for(int j = 0; j < tamanho; j++)
+            //    {
+            //        Console.Write(disponibles[i,j] + "");
+            //    }
+            //    Console.WriteLine("");
+            //}
+        }
     }
+
 }

@@ -33,45 +33,76 @@ namespace Killer_Sudoku
 
             tablePanel.Controls.Add(tablero, 1,0);
 
-
-
-            int count = 0;
+            generarTablero table = new generarTablero(Program.tamanho);
 
             TableLayoutPanel[] tableroCeldas = new TableLayoutPanel[tamanhoTablero * tamanhoTablero];
 
-            for (int i = 0; i < tamanhoTablero; i++)
+
+            foreach(region reg in table.tablero.regiones)
             {
-                for (int j = 0; j < tamanhoTablero; j++)
+                if (reg != null)
                 {
-                    count++;
+                    foreach (Coords cord in reg.getPieza())
+                    {
+                        if (cord != null)
+                        {
+                            var panel = new FlowLayoutPanel();
+                            panel.Width = tamanhoCelda;
+                            panel.Height = tamanhoCelda;
+                            panel.BackColor = reg.getColor();
 
-                    var panel = new FlowLayoutPanel();
-                    panel.Width = tamanhoCelda;
-                    panel.Height = tamanhoCelda;
-                    panel.BackColor = Color.GreenYellow;
+                            var label = new Label();
 
-                    var label = new Label();
+                            label.Name = "" + cord.getX() + "";
+                            label.Text = "" + cord.getX() + "";
 
-                    label.Name = "" + count + "";
-                    label.Text = "" + count + "";
+                            panel.Controls.Add(label);
 
-                    panel.Controls.Add(label);
+                            var label2 = new Label();
 
-                    var label2 = new Label();
+                            label2.Name = "" + cord.getY() + "";
+                            label2.Text = "" + cord.getY() + "";
 
-                    label2.Name = "" + count + "";
-                    label2.Text = "2_" + count + "";
+                            panel.Controls.Add(label2);
 
-                    panel.Controls.Add(label2);
-
-                    tablero.Controls.Add(panel, j, i);
-
-
+                            tablero.Controls.Add(panel, cord.getY(), cord.getX());
+                        }
+                    }
                 }
-
                 tablero.Dock = System.Windows.Forms.DockStyle.Fill;
-             
             }
+
+            //for (int i = 0; i < tamanhoTablero; i++)
+            //{
+            //    for (int j = 0; j < tamanhoTablero; j++)
+            //    {
+
+            //        var panel = new FlowLayoutPanel();
+            //        panel.Width = tamanhoCelda;
+            //        panel.Height = tamanhoCelda;
+            //        panel.BackColor = Color.GreenYellow;
+
+            //        var label = new Label();
+
+            //        label.Name = "" + i + "";
+            //        label.Text = "" + i + "";
+
+            //        panel.Controls.Add(label);
+
+            //        var label2 = new Label();
+
+            //        label2.Name = "" + j + "";
+            //        label2.Text = "" + j + "";
+
+            //        panel.Controls.Add(label2);
+
+            //        tablero.Controls.Add(panel, j, i);
+
+            //    }
+
+            //    tablero.Dock = System.Windows.Forms.DockStyle.Fill;
+             
+            //}
 
         }
 
