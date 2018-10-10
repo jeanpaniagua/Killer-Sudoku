@@ -20,7 +20,7 @@ namespace Killer_Sudoku
             pieza = new Piezas(checker, pos.getX(), pos.getY(), rot).getPieza();
             operador = '+';
             resultado = 0;
-            color = Color.FromArgb(aleatorio.Next(0, 150), aleatorio.Next(0, 150), aleatorio.Next(0, 150));
+            color = Color.FromArgb(aleatorio.Next(100, 255), aleatorio.Next(100, 255), aleatorio.Next(100, 255));
         }
 
         public Coords[] getPieza()

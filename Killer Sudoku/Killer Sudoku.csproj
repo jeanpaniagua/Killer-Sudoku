@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cargarTablero.cs" />
     <Compile Include="casilla.cs" />
     <Compile Include="Coords.cs" />
     <Compile Include="FormTablero.cs">

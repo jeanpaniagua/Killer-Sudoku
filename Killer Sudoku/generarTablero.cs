@@ -57,14 +57,10 @@ namespace Killer_Sudoku
             {
                 for (int columna = 0; columna < tamanho; columna++)
                 {
-                    //Console.WriteLine("Fila: "+ fila + " columna: " + columna + " " + disponibles[fila, columna]);
                     if (disponibles[fila, columna] == true)
                     {
-                        Console.WriteLine("Fila: " + fila + " columna: " + columna + " " + disponibles[fila, columna]);
-
-                        int figura = aleatorio.Next(1, 8);
-                        //Console.WriteLine("Va a crear pieza #" + figura);
                         omitir = new List<int>();
+                        int figura = aleatorio.Next(1, 8);
                         creaRegiones(tamanho, fila, columna, figura, 0);
                     }
                 }
@@ -88,46 +84,46 @@ namespace Killer_Sudoku
                     {
                         pasa = false;
                     }
+                    /*else
+                    { 
+                        pasa = true;
+                    }*/
                 }
             }
             if (!pasa)
             {
-                if (rot < 4)
+                Console.WriteLine("No pasa, rot: " + rot);
+                if (rot < 3)
                 {
-                    //Console.WriteLine("No pasa. Entra ROT.");
                     creaRegiones(tamanho, fila, columna, figura, (byte)(rot + 1));
                 }
-                else
+                else if (rot >= 3)
                 {
                     omitir.Add(figura);
                     int next = buscar(omitir);
-                    //Console.WriteLine("No pasa. Entra Nueva Fig #" + next);
+                    Console.WriteLine(next);
                     creaRegiones(tamanho, fila, columna, next, 0);
                 }
             }
             else if(pasa)
             {
+                //Console.WriteLine(figura);
+                tablero.regiones.Add(region);
                 foreach (Coords cord in region.getPieza())
                 {
                     if (cord != null)
                     {
-                        //Console.WriteLine("PASA!!");
-                        //Console.WriteLine("X: " + cord.getX() + " Y: " + cord.getY());
-                        //Console.WriteLine(figura + " " + "X: " + cord.getX() + " Y: " + cord.getY());
-                        disponibles[cord.getX(), cord.getY()] = false;
-                        tablero.regiones.Add(region);
+                        //Console.WriteLine("Coordenada X: " + cord.getX() + " Y: " + cord.getY());
+                        disponibles[cord.getX(), cord.getY()] = false;   
                     }
-
                 }
             }
-            //for(int i = 0; i < tamanho; i++)
-            //{
-            //    for(int j = 0; j < tamanho; j++)
-            //    {
-            //        Console.Write(disponibles[i,j] + "");
-            //    }
-            //    Console.WriteLine("");
-            //}
+           /* else
+            {
+                omitir.Add(figura);
+                int next = buscar(omitir);
+                creaRegiones(tamanho, fila, columna, next, 0);
+            }*/
         }
         private int buscar(List<int> lista)
         {
@@ -141,16 +137,17 @@ namespace Killer_Sudoku
 
         private int buscarAux(List<int> lista, int num)
         {
-            if (lista.Any(x => x == num))
+            if (lista.Count() == 7)
+            {
+                return 8;
+            }
+            else if (lista.Any(x => x == num))
             {
                 int next = aleatorio.Next(1, 8);
 
                 return buscarAux(lista, next);
             }
-            else if (lista.Count() == 7)
-            {
-                return 8;
-            }
+            
             else
             {
                 return num;
