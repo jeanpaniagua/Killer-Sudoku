@@ -22,6 +22,15 @@ namespace Killer_Sudoku
             resultado = 0;
             color = Color.FromArgb(aleatorio.Next(100, 255), aleatorio.Next(100, 255), aleatorio.Next(100, 255));
         }
+        public region(char operador, int resultado, Coords[] pieza)
+        {
+            this.pieza = pieza;
+            this.operador = operador;
+            this.resultado = resultado;
+            color = Color.FromArgb(aleatorio.Next(100, 255), aleatorio.Next(100, 255), aleatorio.Next(100, 255));
+        }
+
+
 
         public Coords[] getPieza()
         {

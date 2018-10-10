@@ -43,6 +43,7 @@
             this.x7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.x8ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.button4 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -73,6 +74,7 @@
             this.tableLayoutPanel2.Controls.Add(this.button6, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.button5, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.comboBox1, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.button4, 0, 8);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -112,6 +114,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "Guardar Tablero";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -196,25 +199,25 @@
             // x5ToolStripMenuItem
             // 
             this.x5ToolStripMenuItem.Name = "x5ToolStripMenuItem";
-            this.x5ToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
+            this.x5ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.x5ToolStripMenuItem.Text = "5x5";
             // 
             // x6ToolStripMenuItem
             // 
             this.x6ToolStripMenuItem.Name = "x6ToolStripMenuItem";
-            this.x6ToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
+            this.x6ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.x6ToolStripMenuItem.Text = "6x6";
             // 
             // x7ToolStripMenuItem
             // 
             this.x7ToolStripMenuItem.Name = "x7ToolStripMenuItem";
-            this.x7ToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
+            this.x7ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.x7ToolStripMenuItem.Text = "7x7";
             // 
             // x8ToolStripMenuItem
             // 
             this.x8ToolStripMenuItem.Name = "x8ToolStripMenuItem";
-            this.x8ToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
+            this.x8ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.x8ToolStripMenuItem.Text = "8x8";
             // 
             // menuStrip1
@@ -226,6 +229,17 @@
             this.menuStrip1.Size = new System.Drawing.Size(280, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button4.Location = new System.Drawing.Point(3, 536);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(268, 43);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "CargarArchivo";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Interfaz
             // 
@@ -271,6 +285,7 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
     }
 }
 

@@ -181,5 +181,19 @@ namespace Killer_Sudoku
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Program.guardarTablero();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Program.cargarTablero("tableros\\9x9-156130654.txt");
+
+
+            FormTablero pTablero = new FormTablero();
+            pTablero.Show();
+        }
     }
 }
