@@ -13,14 +13,14 @@ namespace Killer_Sudoku
         private char operador;
         private int resultado;
         private Color color;
+        private static Random aleatorio = new Random();
 
         public region(int checker, Coords pos, byte rot)
         {
             pieza = new Piezas(checker, pos.getX(), pos.getY(), rot).getPieza();
             operador = '+';
             resultado = 0;
-            Random r = new Random();
-            color = Color.FromArgb(r.Next(0, 256),r.Next(0, 256), r.Next(0, 256));
+            color = Color.FromArgb(aleatorio.Next(0, 150), aleatorio.Next(0, 150), aleatorio.Next(0, 150));
         }
 
         public Coords[] getPieza()
@@ -31,6 +31,11 @@ namespace Killer_Sudoku
         public Color getColor()
         {
             return color;
+        }
+        
+        public void setColor(Color color)
+        {
+            this.color = color;
         }
 
         public void setOperador(char operador)

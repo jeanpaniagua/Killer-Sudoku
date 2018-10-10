@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 using System.Threading.Tasks;
 
 namespace Killer_Sudoku
@@ -12,6 +13,7 @@ namespace Killer_Sudoku
         private Boolean[,] disponibles;
         private int regs = 0;
         private static Random aleatorio = new Random();
+        private List<int> omitir;
 
         public generarTablero(byte tamanho)
         {
@@ -35,7 +37,7 @@ namespace Killer_Sudoku
                     }
                 }
             }
-            Console.WriteLine("Total: " + c);
+            //Console.WriteLine("Total: " + c);
         }
 
         private void llenaDisponibles(byte tamanho)
@@ -58,7 +60,8 @@ namespace Killer_Sudoku
                     if (disponibles[fila, columna] == true)
                     {
                         int figura = aleatorio.Next(1, 9);
-                        Console.WriteLine("Va a crear pieza #" + figura);
+                        //Console.WriteLine("Va a crear pieza #" + figura);
+                        omitir = new List<int>();
                         creaRegiones(tamanho, fila, columna, figura, 0);
                     }
                 }
@@ -67,7 +70,7 @@ namespace Killer_Sudoku
 
         private void creaRegiones(byte tamanho, int fila, int columna, int  figura, byte rot)
         {
-            Console.WriteLine("Entra pieza #" + figura);
+            //Console.WriteLine("Entra pieza #" + figura);
             region region = new region(figura, new Coords(fila, columna), rot);
             Boolean pasa = true;
             foreach (Coords cord in region.getPieza())
@@ -88,14 +91,14 @@ namespace Killer_Sudoku
             {
                 if (rot < 4)
                 {
-                    Console.WriteLine("No pasa. Entra ROT.");
+                    //Console.WriteLine("No pasa. Entra ROT.");
                     creaRegiones(tamanho, fila, columna, figura, (byte)(rot + 1));
                 }
                 else
                 {
-                    Random rnd = new Random();
-                    int next= aleatorio.Next(1, 9);
-                    Console.WriteLine("No pasa. Entra Nueva Fig #" + next);
+                    omitir.Add(figura);
+                    int next = buscar(omitir);
+                    //Console.WriteLine("No pasa. Entra Nueva Fig #" + next);
                     creaRegiones(tamanho, fila, columna, next, 0);
                 }
             }
@@ -105,12 +108,14 @@ namespace Killer_Sudoku
                 {
                     if (cord != null)
                     {
-                        Console.WriteLine("PASA!!");
-                        Console.WriteLine("X: " + cord.getX() + " Y: " + cord.getY());
+                        //Console.WriteLine("PASA!!");
+                        //Console.WriteLine("X: " + cord.getX() + " Y: " + cord.getY());
+                        Console.WriteLine(figura + " " + "X: " + cord.getX() + " Y: " + cord.getY());
                         disponibles[cord.getX(), cord.getY()] = false;
                         tablero.regiones[regs] = region;
                         regs++;
                     }
+
                 }
             }
             //for(int i = 0; i < tamanho; i++)
@@ -122,6 +127,32 @@ namespace Killer_Sudoku
             //    Console.WriteLine("");
             //}
         }
+        private int buscar(List<int> lista)
+        {
+            Random rnd = new Random();
+
+            int next = aleatorio.Next(1, 9);
+
+            return buscarAux(lista, next);
+        }
+
+
+        private int buscarAux(List<int> lista, int num)
+        {
+            if (lista.Any(x => x == num))
+            {
+                Random rnd = new Random();
+  
+                int next = aleatorio.Next(1, 9);
+
+                return buscarAux(lista, next);
+            }
+            else
+            {
+                return num;
+            }
+        }
     }
+
 
 }
