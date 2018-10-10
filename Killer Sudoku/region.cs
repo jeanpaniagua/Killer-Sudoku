@@ -1,101 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Killer_Sudoku
 {
-    /* Piezas válidas
- * 1)
- * -
- * -
- * -
- * -
- * 
- * 2) 
- * -
- * -
- * - -
- * 
- * 3)
- *   -
- *   -
- * - -
- * 
- * 4)
- * - -
- * - -
- * 
- * 5)
- *  - -
- * - -
- * 
- * 6)
- * 
- * - -
- *   - -
- * 
- * 7)
- * 
- *   -
- * - - -
- * 
- * 8
- * 
- * -
- * 
- * ----------------------------------------------------------------------------
- * Un 0 en posición significa que la pieza no tiene ninguna rotación
- * Un 1 significa una rotación en sentido del reloj, así sucesivamente hasta 3.
- * 
- * ----------------------------------------------------------------------------
- * Por default el operador es una suma.
-*/
     class region
     {
-        private byte pieza;
-        private byte posicion;
+        private Coords[] pieza;
         private char operador;
         private int resultado;
-        private casilla[] zona;
+        private Color color;
+        private static Random aleatorio = new Random();
 
-        public region(byte pieza)
+        public region(int checker, Coords pos, byte rot)
         {
-            this.pieza = pieza;
-            if (pieza != 8)
-            {
-                zona = new casilla[4];
-            }
-            else
-            {
-                zona = new casilla[1];
-            }
-            posicion = 0;
+            pieza = new Piezas(checker, pos.getX(), pos.getY(), rot).getPieza();
             operador = '+';
             resultado = 0;
+            color = Color.FromArgb(aleatorio.Next(100, 255), aleatorio.Next(100, 255), aleatorio.Next(100, 255));
         }
 
-        public byte getPieza()
+        public Coords[] getPieza()
         {
-            return pieza;
-        }
+            return this.pieza;
+        } 
 
-        public void girar()
+        public Color getColor()
         {
-            if (posicion < 3)
-            {
-                posicion++;
-            }
-            else
-            {
-                posicion = 0;
-            }
+            return color;
         }
-
-        public byte getPosicion()
+        
+        public void setColor(Color color)
         {
-            return posicion;
+            this.color = color;
         }
 
         public void setOperador(char operador)
@@ -106,21 +46,6 @@ namespace Killer_Sudoku
         public char getOperador()
         {
             return operador;
-        }
-
-        public void setPosZona(byte numero, byte i)
-        {
-            this.zona[i].setValor(numero);
-        }
-
-        public void setZona(casilla[] zona)
-        {
-            this.zona = zona;
-        }
-
-        public casilla[] getZona()
-        {
-            return zona;
         }
 
         public void setResultado(int resultado)

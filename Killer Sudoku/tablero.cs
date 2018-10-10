@@ -9,22 +9,23 @@ namespace Killer_Sudoku
     class tablero
     {
         private byte tamanho;
-        private casilla[,] tableroMatriz;
+        //private casilla[,] tableroMatriz;
+        public List<region> regiones = new List<region>();
 
         public tablero(byte tamanho)
         {
             this.tamanho = tamanho;
-            tableroMatriz = new casilla[tamanho,tamanho];
+            //tableroMatriz = new casilla[tamanho,tamanho];
         }
 
-        public void setCasilla(byte fila, byte columna, casilla casilla)
-        {
-            this.tableroMatriz[fila, columna] = casilla;
-        }
+        //public void setCasilla(byte fila, byte columna, casilla casilla)
+        //{
+        //    this.tableroMatriz[fila, columna] = casilla;
+        //}
 
-        public casilla getCasilla(byte fila, byte columna)
-        {
-            return tableroMatriz[fila, columna];
-        }
+        //public casilla getCasilla(byte fila, byte columna)
+        //{
+        //    return tableroMatriz[fila, columna];
+        //}
     }
 }

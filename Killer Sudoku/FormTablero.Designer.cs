@@ -45,6 +45,7 @@
             this.tablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tablePanel.Size = new System.Drawing.Size(880, 857);
             this.tablePanel.TabIndex = 0;
+            this.tablePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tablePanel_Paint);
             // 
             // FormTablero
             // 

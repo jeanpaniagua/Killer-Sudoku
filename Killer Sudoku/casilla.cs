@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 using System.Threading.Tasks;
 
 namespace Killer_Sudoku
@@ -9,26 +10,13 @@ namespace Killer_Sudoku
     class casilla
     {
         private byte valor;
-        private String color;
+        private Color color;
         private String operador;
-        private region region;
-        private Boolean ocupada;
         
-        public casilla(byte valor, region region)
+
+        public casilla(byte valor)
         {
             this.valor = valor;
-            this.region = region;
-            this.ocupada = false;
-        }
-
-        public void setOcupada(Boolean bol)
-        {
-            this.ocupada = bol;
-        }
-
-        public Boolean getOcupada()
-        {
-            return ocupada;
         }
 
         public void setValor(byte valor)
@@ -41,19 +29,9 @@ namespace Killer_Sudoku
             return valor;
         }
 
-        public void setRegion(region region)
-        {
-            this.region = region;
-        }
-
-        public region getRegion()
-        {
-            return region;
-        }
-
         public void setOperador(String operador)
         {
-            this.color = operador;
+            this.operador = operador;
         }
 
         public String getOperador()
@@ -61,12 +39,12 @@ namespace Killer_Sudoku
             return operador;
         }
 
-        public void setColor(String color)
+        public void setColor(Color color)
         {
             this.color = color;
         }
 
-        public String getColor()
+        public Color getColor()
         {
             return color;
         }

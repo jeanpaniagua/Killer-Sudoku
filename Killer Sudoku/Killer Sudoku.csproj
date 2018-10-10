@@ -46,8 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cargarTablero.cs" />
     <Compile Include="casilla.cs" />
+    <Compile Include="Coords.cs" />
     <Compile Include="FormTablero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +61,7 @@
       <DependentUpon>Interfaz.cs</DependentUpon>
     </Compile>
     <Compile Include="generarTablero.cs" />
+    <Compile Include="Piezas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="region.cs" />
