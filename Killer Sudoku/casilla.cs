@@ -12,7 +12,6 @@ namespace Killer_Sudoku
         private byte valor;
         private Color color;
         private String operador;
-        
 
         public casilla(byte valor)
         {

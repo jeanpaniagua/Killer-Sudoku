@@ -9,6 +9,7 @@ namespace Killer_Sudoku
     static class Program
     {
         public static byte tamanho = 0;
+        public static casilla[,] casillas;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

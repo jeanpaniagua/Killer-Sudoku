@@ -21,7 +21,6 @@ namespace Killer_Sudoku
             disponibles = new Boolean[tamanho, tamanho];
             llenaDisponibles(tamanho);
             cargarRegiones(tamanho);
-            //cuenta();
         }
 
         private void cuenta()
@@ -37,7 +36,6 @@ namespace Killer_Sudoku
                     }
                 }
             }
-            //Console.WriteLine("Total: " + c);
         }
 
         private void llenaDisponibles(byte tamanho)
@@ -69,7 +67,6 @@ namespace Killer_Sudoku
 
         private void creaRegiones(byte tamanho, int fila, int columna, int  figura, byte rot)
         {
-            //Console.WriteLine("Entra pieza #" + figura);
             region region = new region(figura, new Coords(fila, columna), rot);
             Boolean pasa = true;
             foreach (Coords cord in region.getPieza())
@@ -84,15 +81,10 @@ namespace Killer_Sudoku
                     {
                         pasa = false;
                     }
-                    /*else
-                    { 
-                        pasa = true;
-                    }*/
                 }
             }
             if (!pasa)
             {
-                Console.WriteLine("No pasa, rot: " + rot);
                 if (rot < 3)
                 {
                     creaRegiones(tamanho, fila, columna, figura, (byte)(rot + 1));
@@ -107,23 +99,15 @@ namespace Killer_Sudoku
             }
             else if(pasa)
             {
-                //Console.WriteLine(figura);
                 tablero.regiones.Add(region);
                 foreach (Coords cord in region.getPieza())
                 {
                     if (cord != null)
                     {
-                        //Console.WriteLine("Coordenada X: " + cord.getX() + " Y: " + cord.getY());
                         disponibles[cord.getX(), cord.getY()] = false;   
                     }
                 }
             }
-           /* else
-            {
-                omitir.Add(figura);
-                int next = buscar(omitir);
-                creaRegiones(tamanho, fila, columna, next, 0);
-            }*/
         }
         private int buscar(List<int> lista)
         {
