@@ -57,9 +57,12 @@ namespace Killer_Sudoku
             {
                 for (int columna = 0; columna < tamanho; columna++)
                 {
+                    //Console.WriteLine("Fila: "+ fila + " columna: " + columna + " " + disponibles[fila, columna]);
                     if (disponibles[fila, columna] == true)
                     {
-                        int figura = aleatorio.Next(1, 9);
+                        Console.WriteLine("Fila: " + fila + " columna: " + columna + " " + disponibles[fila, columna]);
+
+                        int figura = aleatorio.Next(1, 8);
                         //Console.WriteLine("Va a crear pieza #" + figura);
                         omitir = new List<int>();
                         creaRegiones(tamanho, fila, columna, figura, 0);
@@ -110,10 +113,9 @@ namespace Killer_Sudoku
                     {
                         //Console.WriteLine("PASA!!");
                         //Console.WriteLine("X: " + cord.getX() + " Y: " + cord.getY());
-                        Console.WriteLine(figura + " " + "X: " + cord.getX() + " Y: " + cord.getY());
+                        //Console.WriteLine(figura + " " + "X: " + cord.getX() + " Y: " + cord.getY());
                         disponibles[cord.getX(), cord.getY()] = false;
-                        tablero.regiones[regs] = region;
-                        regs++;
+                        tablero.regiones.Add(region);
                     }
 
                 }
@@ -131,7 +133,7 @@ namespace Killer_Sudoku
         {
             Random rnd = new Random();
 
-            int next = aleatorio.Next(1, 9);
+            int next = aleatorio.Next(1, 8);
 
             return buscarAux(lista, next);
         }
@@ -141,11 +143,13 @@ namespace Killer_Sudoku
         {
             if (lista.Any(x => x == num))
             {
-                Random rnd = new Random();
-  
-                int next = aleatorio.Next(1, 9);
+                int next = aleatorio.Next(1, 8);
 
                 return buscarAux(lista, next);
+            }
+            else if (lista.Count() == 7)
+            {
+                return 8;
             }
             else
             {

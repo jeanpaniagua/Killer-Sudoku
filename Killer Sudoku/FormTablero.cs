@@ -12,11 +12,48 @@ namespace Killer_Sudoku
 {
     public partial class FormTablero : Form
     {
+        private casilla[,] casillas;
+
+
         public FormTablero()
         {
             InitializeComponent();
+            cargarCoordenadas();
+        }
+
+        private void cargarCoordenadas()
+        {
+            byte tamanhoTablero = Program.tamanho;
+
+            generarTablero table = new generarTablero(tamanhoTablero);
+
+            casillas = new casilla[tamanhoTablero, tamanhoTablero];
+
+            byte cont = 0;
+
+            foreach (region reg in table.tablero.regiones)
+            {
+                if (reg != null)
+                {
+                    foreach (Coords cord in reg.getPieza())
+                    {
+                        if (cord != null)
+                        {
+                            casillas[cord.getX(), cord.getY()] = new casilla(cont);
+                            casillas[cord.getX(), cord.getY()].setColor(reg.getColor());
+                            casillas[cord.getX(), cord.getY()].setOperador("+");
+                            cont++;
+                            //Console.WriteLine();
+                        }
+                    }
+                }
+                
+                //Console.WriteLine(cont);
+            }
             cargarMatriz();
         }
+
+
 
         private void cargarMatriz()
         {
@@ -33,12 +70,11 @@ namespace Killer_Sudoku
 
             tablePanel.Controls.Add(tablero, 1,0);
 
-            generarTablero table = new generarTablero(Program.tamanho);
-
+           
             TableLayoutPanel[] tableroCeldas = new TableLayoutPanel[tamanhoTablero * tamanhoTablero];
 
 
-            foreach(region reg in table.tablero.regiones)
+            /*foreach(region reg in table.tablero.regiones)
             {
                 if (reg != null)
                 {
@@ -46,6 +82,7 @@ namespace Killer_Sudoku
                     {
                         if (cord != null)
                         {
+                            Console.WriteLine("X: " + cord.getX()  + " Y: " + cord.getY());
                             var panel = new FlowLayoutPanel();
                             panel.Width = tamanhoCelda;
                             panel.Height = tamanhoCelda;
@@ -70,39 +107,43 @@ namespace Killer_Sudoku
                     }
                 }
                 tablero.Dock = System.Windows.Forms.DockStyle.Fill;
+            }*/
+
+            for (int i = 0; i < tamanhoTablero; i++)
+            {
+                for (int j = 0; j < tamanhoTablero; j++)
+                {
+                    //Console.WriteLine(casillas[i, j].getValor());
+
+                    if (casillas[i, j] != null)
+                    {
+                        var panel = new FlowLayoutPanel();
+                        panel.Width = tamanhoCelda;
+                        panel.Height = tamanhoCelda;
+
+                        panel.BackColor = casillas[i, j].getColor();
+
+                        var label = new Label();
+
+                        label.Name = casillas[i, j].getOperador();
+                        label.Text = casillas[i, j].getOperador();
+
+                        panel.Controls.Add(label);
+
+                        var label2 = new Label();
+
+                        label2.Name = casillas[i, j].getValor().ToString();
+                        label2.Text = casillas[i, j].getValor().ToString();
+
+                        panel.Controls.Add(label2);
+
+                        tablero.Controls.Add(panel, j, i);
+                    }
+                }
+
+                tablero.Dock = System.Windows.Forms.DockStyle.Fill;
+
             }
-
-            //for (int i = 0; i < tamanhoTablero; i++)
-            //{
-            //    for (int j = 0; j < tamanhoTablero; j++)
-            //    {
-
-            //        var panel = new FlowLayoutPanel();
-            //        panel.Width = tamanhoCelda;
-            //        panel.Height = tamanhoCelda;
-            //        panel.BackColor = Color.GreenYellow;
-
-            //        var label = new Label();
-
-            //        label.Name = "" + i + "";
-            //        label.Text = "" + i + "";
-
-            //        panel.Controls.Add(label);
-
-            //        var label2 = new Label();
-
-            //        label2.Name = "" + j + "";
-            //        label2.Text = "" + j + "";
-
-            //        panel.Controls.Add(label2);
-
-            //        tablero.Controls.Add(panel, j, i);
-
-            //    }
-
-            //    tablero.Dock = System.Windows.Forms.DockStyle.Fill;
-             
-            //}
 
         }
 

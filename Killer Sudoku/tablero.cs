@@ -10,7 +10,7 @@ namespace Killer_Sudoku
     {
         private byte tamanho;
         //private casilla[,] tableroMatriz;
-        public region[] regiones = new region[1000];
+        public List<region> regiones = new List<region>();
 
         public tablero(byte tamanho)
         {
