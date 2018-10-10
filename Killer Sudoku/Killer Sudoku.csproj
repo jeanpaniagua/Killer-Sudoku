@@ -61,6 +61,7 @@
       <DependentUpon>Interfaz.cs</DependentUpon>
     </Compile>
     <Compile Include="generarTablero.cs" />
+    <Compile Include="killerSudoku.cs" />
     <Compile Include="Piezas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

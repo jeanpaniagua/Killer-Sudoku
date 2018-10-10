@@ -148,6 +148,10 @@ namespace Killer_Sudoku
                     break;
             }
 
+            killerSudoku sudoku = new killerSudoku(Program.tamanho);
+
+            sudoku.start();
+
 
             FormTablero pTablero = new FormTablero();
             pTablero.Show();

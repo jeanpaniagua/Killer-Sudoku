@@ -10,6 +10,7 @@ namespace Killer_Sudoku
     {
         public static byte tamanho = 0;
         public static casilla[,] casillas;
+        public static tablero tablero;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

@@ -15,10 +15,10 @@ namespace Killer_Sudoku
         public FormTablero()
         {
             InitializeComponent();
-            cargarCoordenadas();
+            cargarMatriz();
         }
 
-        private void cargarCoordenadas()
+        /*private void cargarCoordenadas()
         {
             byte tamanhoTablero = Program.tamanho;
 
@@ -36,18 +36,17 @@ namespace Killer_Sudoku
                     {
                         if (cord != null)
                         {
-                            Program.casillas[cord.getX(), cord.getY()] = new casilla(cont);
+                            Program.casillas[cord.getX(), cord.getY()] = new casilla(0);
                             Program.casillas[cord.getX(), cord.getY()].setColor(reg.getColor());
-                            Program.casillas[cord.getX(), cord.getY()].setOperador("+");
+                            Program.casillas[cord.getX(), cord.getY()].setOperador(" ");
                             cont++;
                         }
                     }
                 }
             }
             cargarMatriz();
-        }
-
-
+        }*/
+     
 
         private void cargarMatriz()
         {

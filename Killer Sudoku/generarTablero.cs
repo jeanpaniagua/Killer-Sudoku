@@ -9,7 +9,7 @@ namespace Killer_Sudoku
 {
     class generarTablero
     {
-        public tablero tablero;
+        
         private Boolean[,] disponibles;
         private int regs = 0;
         private static Random aleatorio = new Random();
@@ -17,7 +17,7 @@ namespace Killer_Sudoku
 
         public generarTablero(byte tamanho)
         {
-            tablero = new tablero(tamanho);
+            Program.tablero = new tablero(tamanho);
             disponibles = new Boolean[tamanho, tamanho];
             llenaDisponibles(tamanho);
             cargarRegiones(tamanho);
@@ -26,7 +26,7 @@ namespace Killer_Sudoku
         private void cuenta()
         {
             int c = 0;
-            foreach(region reg in tablero.regiones)
+            foreach(region reg in Program.tablero.regiones)
             {
                 if (reg != null)
                 {
@@ -99,7 +99,7 @@ namespace Killer_Sudoku
             }
             else if(pasa)
             {
-                tablero.regiones.Add(region);
+                Program.tablero.regiones.Add(region);
                 foreach (Coords cord in region.getPieza())
                 {
                     if (cord != null)
