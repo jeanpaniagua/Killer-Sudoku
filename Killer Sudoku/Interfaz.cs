@@ -189,11 +189,19 @@ namespace Killer_Sudoku
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Program.cargarTablero("tableros\\9x9-156130654.txt");
 
+            OpenFileDialog abrir = new OpenFileDialog();
 
-            FormTablero pTablero = new FormTablero();
-            pTablero.Show();
+            if (abrir.ShowDialog() == DialogResult.OK)
+            {
+                string direccion = abrir.FileName;
+
+                Program.cargarTablero(direccion);
+
+                FormTablero pTablero = new FormTablero();
+                pTablero.Show();
+            }
+           
         }
     }
 }

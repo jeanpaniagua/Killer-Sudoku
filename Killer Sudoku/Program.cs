@@ -80,7 +80,9 @@ namespace Killer_Sudoku
                 //Read the first line of text
                 line = sr.ReadLine();
 
-                tamanho = System.Text.Encoding.ASCII.GetBytes(line)[0];
+                tamanho = (byte)Int32.Parse(line);
+                Console.WriteLine("Tamaño " + tamanho);
+
 
                 tablero = new tablero(tamanho);
 

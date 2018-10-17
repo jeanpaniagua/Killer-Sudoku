@@ -37,13 +37,13 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.gkfsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.x5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.x6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.x7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.x8ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.button4 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -185,6 +185,17 @@
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button4.Location = new System.Drawing.Point(3, 536);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(268, 43);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "CargarArchivo";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // gkfsToolStripMenuItem
             // 
             this.gkfsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -199,25 +210,25 @@
             // x5ToolStripMenuItem
             // 
             this.x5ToolStripMenuItem.Name = "x5ToolStripMenuItem";
-            this.x5ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.x5ToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
             this.x5ToolStripMenuItem.Text = "5x5";
             // 
             // x6ToolStripMenuItem
             // 
             this.x6ToolStripMenuItem.Name = "x6ToolStripMenuItem";
-            this.x6ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.x6ToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
             this.x6ToolStripMenuItem.Text = "6x6";
             // 
             // x7ToolStripMenuItem
             // 
             this.x7ToolStripMenuItem.Name = "x7ToolStripMenuItem";
-            this.x7ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.x7ToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
             this.x7ToolStripMenuItem.Text = "7x7";
             // 
             // x8ToolStripMenuItem
             // 
             this.x8ToolStripMenuItem.Name = "x8ToolStripMenuItem";
-            this.x8ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.x8ToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
             this.x8ToolStripMenuItem.Text = "8x8";
             // 
             // menuStrip1
@@ -229,17 +240,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(280, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // button4
-            // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(3, 536);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(268, 43);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "CargarArchivo";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Interfaz
             // 
