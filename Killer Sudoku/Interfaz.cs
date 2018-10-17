@@ -13,11 +13,14 @@ namespace Killer_Sudoku
 {
     public partial class Interfaz : Form
     {
+        FormTablero pTablero;
 
-        
         public Interfaz()
         {
             InitializeComponent();
+            btnResolver.Enabled = false;
+            btnGuardarTablero.Enabled = false;
+            comboBox1.SelectedIndex = 0;
 
         }
 
@@ -93,7 +96,8 @@ namespace Killer_Sudoku
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            btnGuardarTablero.Enabled = true;
+            btnResolver.Enabled = true;
             String value = comboBox1.Text;
 
             switch (value)
@@ -152,8 +156,16 @@ namespace Killer_Sudoku
 
             sudoku.start();
 
-
-            FormTablero pTablero = new FormTablero();
+            try
+            {
+                pTablero.Close();
+            }
+            catch(System.NullReferenceException ex)
+            {
+                
+            }
+            
+            pTablero = new FormTablero();
             pTablero.Show();
         }
 
@@ -169,6 +181,19 @@ namespace Killer_Sudoku
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            btnResolver.Enabled = false;
+
+            try
+            {
+                pTablero.Close();
+            }
+            catch (System.NullReferenceException ex)
+            {
+
+            }
+
+            pTablero = new FormTablero();
+            pTablero.Show();
 
         }
 
@@ -185,6 +210,9 @@ namespace Killer_Sudoku
         private void button2_Click(object sender, EventArgs e)
         {
             Program.guardarTablero();
+            btnGuardarTablero.Enabled = false;
+            MessageBox.Show("Tablero Guardado", "Killer Sudoku",
+            MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -198,10 +226,27 @@ namespace Killer_Sudoku
 
                 Program.cargarTablero(direccion);
 
-                FormTablero pTablero = new FormTablero();
+                try
+                {
+                    pTablero.Close();
+                }
+                catch (System.NullReferenceException ex)
+                {
+
+                }
+
+                pTablero = new FormTablero();
                 pTablero.Show();
+
+                btnGuardarTablero.Enabled = false;
+                btnResolver.Enabled = true;
             }
            
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

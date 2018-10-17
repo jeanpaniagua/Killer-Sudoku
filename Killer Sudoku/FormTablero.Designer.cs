@@ -59,7 +59,7 @@
             this.MinimumSize = new System.Drawing.Size(900, 900);
             this.Name = "FormTablero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "FormTablero";
+            this.Text = "Tablero";
             this.Load += new System.EventHandler(this.FormTablero_Load);
             this.ResumeLayout(false);
 
