@@ -37,6 +37,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.gkfsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.x5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.x6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +74,7 @@
             this.tableLayoutPanel2.Controls.Add(this.button6, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.button5, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.comboBox1, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.button4, 0, 8);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -112,6 +114,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "Guardar Tablero";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -181,6 +184,17 @@
             this.comboBox1.Size = new System.Drawing.Size(268, 21);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button4.Location = new System.Drawing.Point(3, 536);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(268, 43);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "CargarArchivo";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // gkfsToolStripMenuItem
             // 
@@ -271,6 +285,7 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
     }
 }
 

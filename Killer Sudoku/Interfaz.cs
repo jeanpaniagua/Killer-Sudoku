@@ -181,5 +181,27 @@ namespace Killer_Sudoku
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Program.guardarTablero();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog abrir = new OpenFileDialog();
+
+            if (abrir.ShowDialog() == DialogResult.OK)
+            {
+                string direccion = abrir.FileName;
+
+                Program.cargarTablero(direccion);
+
+                FormTablero pTablero = new FormTablero();
+                pTablero.Show();
+            }
+           
+        }
     }
 }
