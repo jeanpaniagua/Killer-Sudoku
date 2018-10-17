@@ -10,6 +10,7 @@ namespace Killer_Sudoku
     class casilla
     {
         private byte valor;
+        private int resultado;
         private Color color;
         private String operador;
 
@@ -21,6 +22,16 @@ namespace Killer_Sudoku
         public void setValor(byte valor)
         {
             this.valor = valor;
+        }
+
+        public void setResultado(int resultado)
+        {
+            this.resultado = resultado;
+        }
+
+        public int getResultado()
+        {
+            return resultado;
         }
 
         public byte getValor()

@@ -81,15 +81,21 @@ namespace Killer_Sudoku
 
                         var label = new Label();
 
-                        label.Name = Program.casillas[i, j].getOperador();
-                        label.Text = Program.casillas[i, j].getOperador();
+                        if(Program.casillas[i, j].getResultado() > 0)
+                        {
+                            label.Name = Program.casillas[i, j].getResultado().ToString();
+                            label.Text = Program.casillas[i, j].getOperador() + " " + Program.casillas[i, j].getResultado().ToString();
+                        }
 
                         panel.Controls.Add(label);
 
                         var label2 = new Label();
 
-                        label2.Name = Program.casillas[i, j].getValor().ToString();
-                        label2.Text = Program.casillas[i, j].getValor().ToString();
+                        if (Program.casillas[i, j].getValor() > 0)
+                        {
+                            label2.Name = Program.casillas[i, j].getValor().ToString();
+                            label2.Text = Program.casillas[i, j].getValor().ToString();
+                        }
 
                         panel.Controls.Add(label2);
 

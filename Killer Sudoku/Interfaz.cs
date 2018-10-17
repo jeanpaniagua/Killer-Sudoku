@@ -194,7 +194,6 @@ namespace Killer_Sudoku
 
             pTablero = new FormTablero();
             pTablero.Show();
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
