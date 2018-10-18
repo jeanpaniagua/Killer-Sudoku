@@ -61,7 +61,7 @@
       <DependentUpon>Interfaz.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\generarTablero.cs" />
-    <Compile Include="Clases\killerSudoku.cs" />
+    <Compile Include="Clases\generarKillerSudoku.cs" />
     <Compile Include="Clases\Piezas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
