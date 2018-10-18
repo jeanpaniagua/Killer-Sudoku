@@ -93,7 +93,7 @@ namespace Killer_Sudoku
                 {
                     omitir.Add(figura);
                     int next = buscar(omitir);
-                    Console.WriteLine(next);
+                    //Console.WriteLine(next);
                     creaRegiones(tamanho, fila, columna, next, 0);
                 }
             }

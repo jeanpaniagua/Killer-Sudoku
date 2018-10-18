@@ -46,31 +46,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="casilla.cs" />
-    <Compile Include="Coords.cs" />
-    <Compile Include="FormTablero.cs">
+    <Compile Include="Clases\casilla.cs" />
+    <Compile Include="Clases\Coords.cs" />
+    <Compile Include="Interfaz\FormTablero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTablero.Designer.cs">
+    <Compile Include="Interfaz\FormTablero.Designer.cs">
       <DependentUpon>FormTablero.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaz.cs">
+    <Compile Include="Interfaz\Interfaz.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Interfaz.Designer.cs">
+    <Compile Include="Interfaz\Interfaz.Designer.cs">
       <DependentUpon>Interfaz.cs</DependentUpon>
     </Compile>
-    <Compile Include="generarTablero.cs" />
-    <Compile Include="killerSudoku.cs" />
-    <Compile Include="Piezas.cs" />
+    <Compile Include="Clases\generarTablero.cs" />
+    <Compile Include="Clases\killerSudoku.cs" />
+    <Compile Include="Clases\Piezas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="region.cs" />
-    <Compile Include="tablero.cs" />
-    <EmbeddedResource Include="FormTablero.resx">
+    <Compile Include="Clases\region.cs" />
+    <Compile Include="Clases\tablero.cs" />
+    <EmbeddedResource Include="Interfaz\FormTablero.resx">
       <DependentUpon>FormTablero.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Interfaz.resx">
+    <EmbeddedResource Include="Interfaz\Interfaz.resx">
       <DependentUpon>Interfaz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

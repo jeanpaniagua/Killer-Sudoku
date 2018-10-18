@@ -81,7 +81,7 @@ namespace Killer_Sudoku
                 line = sr.ReadLine();
 
                 tamanho = (byte)Int32.Parse(line);
-                Console.WriteLine("Tamaño " + tamanho);
+                //Console.WriteLine("Tamaño " + tamanho);
 
 
                 tablero = new tablero(tamanho);
@@ -110,17 +110,15 @@ namespace Killer_Sudoku
                         {
                             if (i > 1)
                             {
-                                Console.WriteLine(i + " x: " + Int32.Parse(region[i]) + " y: " + Int32.Parse(region[i + 1]));
                                 coordenadas[cont] = new Coords(Int32.Parse(region[i]), Int32.Parse(region[i + 1]));
 
                                 cont++;
                             }
                         }
-
                         region pieza = new region(operador, resultado, coordenadas);
 
                         tablero.regiones.Add(pieza);
-                        Console.WriteLine("Región creada");
+                        //Console.WriteLine("Región creada");
                     }
                 }
 
@@ -150,9 +148,12 @@ namespace Killer_Sudoku
                         {
                             Program.casillas[cord.getX(), cord.getY()] = new casilla(0);
                             Program.casillas[cord.getX(), cord.getY()].setColor(reg.getColor());
-                            Program.casillas[cord.getX(), cord.getY()].setOperador(" ");
                         }
                     }
+                    int x = reg.getPieza()[0].getX();
+                    int y = reg.getPieza()[0].getY();
+                    casillas[x, y].setOperador(reg.getOperador().ToString());
+                    casillas[x, y].setResultado(reg.getResultado());
                 }
             }
         }

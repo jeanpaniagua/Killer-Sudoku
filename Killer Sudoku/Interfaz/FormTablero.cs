@@ -81,7 +81,7 @@ namespace Killer_Sudoku
 
                         var label = new Label();
 
-                        if(Program.casillas[i, j].getResultado() > 0)
+                        if (Program.casillas[i, j].getResultado() > 0)
                         {
                             label.Name = Program.casillas[i, j].getResultado().ToString();
                             label.Text = Program.casillas[i, j].getOperador() + " " + Program.casillas[i, j].getResultado().ToString();
@@ -90,6 +90,8 @@ namespace Killer_Sudoku
                         panel.Controls.Add(label);
 
                         var label2 = new Label();
+
+                        Console.WriteLine(Program.casillas[i, j].getResultado());
 
                         if (Program.casillas[i, j].getValor() > 0)
                         {
