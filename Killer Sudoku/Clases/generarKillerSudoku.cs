@@ -119,31 +119,30 @@ namespace Killer_Sudoku
                         reg.setOperador(op);
                         reg.setResultado(resultado(Program.casillas[reg.getPieza()[0].getX(), reg.getPieza()[0].getY()].getValor(), Program.casillas[reg.getPieza()[1].getX(), reg.getPieza()[1].getY()].getValor(),
                             Program.casillas[reg.getPieza()[2].getX(), reg.getPieza()[2].getY()].getValor(), Program.casillas[reg.getPieza()[3].getX(), reg.getPieza()[3].getY()].getValor(), op));
-                        Console.WriteLine(reg.getPieza()[0].getValor());
-
-                    }
-
-                    foreach (Coords cord in reg.getPieza())
-                    {
-                        if (cord != null)
+                        foreach (Coords cord in reg.getPieza())
                         {
-                            Program.casillas[cord.getX(), cord.getY()].setColor(reg.getColor());
+                            if (cord != null)
+                            {
+                                Program.casillas[cord.getX(), cord.getY()].setValor(0);
+                                Program.casillas[cord.getX(), cord.getY()].setColor(reg.getColor());
+                            }
                         }
                     }
+                    else
+                    {
+                        foreach (Coords cord in reg.getPieza())
+                        {
+                            if (cord != null)
+                            {
+                                Program.casillas[cord.getX(), cord.getY()].setColor(reg.getColor());
+                            }
+                        }
+                    }
+
                     Program.casillas[reg.getPieza()[0].getX(), reg.getPieza()[0].getY()].setOperador(Convert.ToString(reg.getOperador()));
                     Program.casillas[reg.getPieza()[0].getX(), reg.getPieza()[0].getY()].setResultado(reg.getResultado());
                 }
             }
-
-            for(int i = 0; i < tamanho; i++)
-            {
-                for (int j = 0; j < tamanho; j++)
-                {
-                    Program.casillas[i, j].setValor(0);
-                }
-            }
-
-
         }
     }
 }
