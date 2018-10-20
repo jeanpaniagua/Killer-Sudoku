@@ -113,10 +113,10 @@ namespace Killer_Sudoku
             {
                 if (reg != null)
                 {
+                    char op = operadores[aleatorio.Next(0, 2)];
+                    reg.setOperador(op);
                     if (reg.getPieza()[1] != null)
                     {
-                        char op = operadores[aleatorio.Next(0, 2)];
-                        reg.setOperador(op);
                         reg.setResultado(resultado(Program.casillas[reg.getPieza()[0].getX(), reg.getPieza()[0].getY()].getValor(), Program.casillas[reg.getPieza()[1].getX(), reg.getPieza()[1].getY()].getValor(),
                             Program.casillas[reg.getPieza()[2].getX(), reg.getPieza()[2].getY()].getValor(), Program.casillas[reg.getPieza()[3].getX(), reg.getPieza()[3].getY()].getValor(), op));
                         foreach (Coords cord in reg.getPieza())
@@ -130,10 +130,12 @@ namespace Killer_Sudoku
                     }
                     else
                     {
+                        
                         foreach (Coords cord in reg.getPieza())
                         {
                             if (cord != null)
                             {
+                                reg.setResultado(Program.casillas[cord.getX(), cord.getY()].getValor());
                                 Program.casillas[cord.getX(), cord.getY()].setColor(reg.getColor());
                             }
                         }

@@ -142,12 +142,26 @@ namespace Killer_Sudoku
             {
                 if (reg != null)
                 {
-                    foreach (Coords cord in reg.getPieza())
+                    if (reg.getPieza()[1] != null)
                     {
-                        if (cord != null)
+                        foreach (Coords cord in reg.getPieza())
                         {
-                            Program.casillas[cord.getX(), cord.getY()] = new casilla(0);
-                            Program.casillas[cord.getX(), cord.getY()].setColor(reg.getColor());
+                            if (cord != null)
+                            {
+                                Program.casillas[cord.getX(), cord.getY()] = new casilla(0);
+                                Program.casillas[cord.getX(), cord.getY()].setColor(reg.getColor());
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (Coords cord in reg.getPieza())
+                        {
+                            if (cord != null)
+                            {
+                                Program.casillas[cord.getX(), cord.getY()] = new casilla((byte)reg.getResultado());
+                                Program.casillas[cord.getX(), cord.getY()].setColor(reg.getColor());
+                            }
                         }
                     }
                     int x = reg.getPieza()[0].getX();
