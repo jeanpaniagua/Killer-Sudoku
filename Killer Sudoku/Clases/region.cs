@@ -16,7 +16,7 @@ namespace Killer_Sudoku
         private int resultado;
         private Color color;
         private static Random aleatorio = new Random();
-        public ArrayList soluciones = new ArrayList();
+        public List<int[]> soluciones = new List<int[]>();
 
         public region(int checker, Coords pos, byte rot)
         {

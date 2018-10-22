@@ -16,7 +16,7 @@ namespace Killer_Sudoku.Clases
             this.tam = tamanho;
         }
 
-        public void resuelveReg(region[] regList)
+        public void resuelveReg(List<region> regList)
         {
             foreach (region reg in regList)
             {
@@ -27,17 +27,32 @@ namespace Killer_Sudoku.Clases
                 else
                 {
                     int[] solucion = new int[4];
-                    solucion = backTrack(reg, solucion, 0);
+                    Console.WriteLine("Va a entrar.");
+                    backTrack(reg, solucion, 0);
+                    Console.WriteLine("Sale.");
+                    imprime(reg);
+                    break;//Este se elimina, lo puse para que lo hiciera con una sola región....
                 }
             }
         }
 
-        public int[] backTrack(region reg, int[] sol, int pos)
+        public void imprime(region reg)
         {
-            Boolean success = false; 
-            for(int i = 1; i < tam; i++)
+            Console.WriteLine("imprime");
+            foreach (int[] obj in reg.soluciones)
             {
-                if(i > reg.getResultado())
+                Console.WriteLine("Entra 4E");
+                Console.WriteLine("Solución para " + reg.getOperador() + " " + reg.getResultado() + ":");
+                Console.WriteLine(obj[0] + ", " + obj[1] + ", " + obj[2] + ", "+ obj[3] + ".");
+            }
+        }
+
+        public Boolean backTrack(region reg, int[] sol, int pos)
+        {
+            for(int i = 1; i <= tam; i++)
+            {
+                Console.WriteLine("Entra con pos = " + pos + ", i = " + i);
+                if (i >= reg.getResultado())
                 {
                     break;
                 }
@@ -51,6 +66,7 @@ namespace Killer_Sudoku.Clases
                         {
                             res += sol[j];
                         }
+                        Console.WriteLine("Operador +; res = " + res + ", RES " + reg.getResultado());
                     }
                     else if (reg.getOperador() == 'X')
                     {
@@ -59,25 +75,30 @@ namespace Killer_Sudoku.Clases
                         {
                             res = res * sol[j];
                         }
+                        Console.WriteLine("Operador X; res = " + res + ", RES " + reg.getResultado());
                     }
                     if (reg.getResultado() == res)
                     {
-                        success = true;
+                        Console.WriteLine("Check");
+                        reg.soluciones.Add(sol);
+                        return true;
+                    }
+                    else if (reg.getResultado() < res)
+                    {
                         break;
                     }
-                    else
+                }
+                else
+                {
+                    if (pos < 3)
                     {
-                        if (reg.getResultado() < res)
-                        {
-                            break;
-                        }
+                        Console.WriteLine("pos < 3; pos = " + pos++);
+                        sol[pos] = i;
+                        backTrack(reg, sol, pos++);
                     }
                 }
             }
-            if (success)
-                return sol;
-            else
-                return null;
+            return false;
         }
 
     }

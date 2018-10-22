@@ -54,7 +54,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(280, 833);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(280, 713);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -84,16 +84,16 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(274, 827);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(274, 707);
             this.tableLayoutPanel2.TabIndex = 0;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // btnGenerarTablero
             // 
             this.btnGenerarTablero.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGenerarTablero.Location = new System.Drawing.Point(3, 199);
+            this.btnGenerarTablero.Location = new System.Drawing.Point(3, 171);
             this.btnGenerarTablero.Name = "btnGenerarTablero";
-            this.btnGenerarTablero.Size = new System.Drawing.Size(268, 43);
+            this.btnGenerarTablero.Size = new System.Drawing.Size(268, 36);
             this.btnGenerarTablero.TabIndex = 6;
             this.btnGenerarTablero.Text = "Generar Tablero";
             this.btnGenerarTablero.UseVisualStyleBackColor = true;
@@ -102,9 +102,9 @@
             // btnGuardarTablero
             // 
             this.btnGuardarTablero.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGuardarTablero.Location = new System.Drawing.Point(3, 248);
+            this.btnGuardarTablero.Location = new System.Drawing.Point(3, 213);
             this.btnGuardarTablero.Name = "btnGuardarTablero";
-            this.btnGuardarTablero.Size = new System.Drawing.Size(268, 43);
+            this.btnGuardarTablero.Size = new System.Drawing.Size(268, 36);
             this.btnGuardarTablero.TabIndex = 7;
             this.btnGuardarTablero.Text = "Guardar Tablero";
             this.btnGuardarTablero.UseVisualStyleBackColor = true;
@@ -113,9 +113,9 @@
             // btnResolver
             // 
             this.btnResolver.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnResolver.Location = new System.Drawing.Point(3, 297);
+            this.btnResolver.Location = new System.Drawing.Point(3, 255);
             this.btnResolver.Name = "btnResolver";
-            this.btnResolver.Size = new System.Drawing.Size(268, 43);
+            this.btnResolver.Size = new System.Drawing.Size(268, 36);
             this.btnResolver.TabIndex = 8;
             this.btnResolver.Text = "Resolver";
             this.btnResolver.UseVisualStyleBackColor = true;
@@ -124,9 +124,9 @@
             // btnSalir
             // 
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSalir.Location = new System.Drawing.Point(3, 775);
+            this.btnSalir.Location = new System.Drawing.Point(3, 663);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(268, 49);
+            this.btnSalir.Size = new System.Drawing.Size(268, 41);
             this.btnSalir.TabIndex = 10;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -136,9 +136,9 @@
             // 
             this.button6.Cursor = System.Windows.Forms.Cursors.No;
             this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.Location = new System.Drawing.Point(3, 101);
+            this.button6.Location = new System.Drawing.Point(3, 87);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(268, 43);
+            this.button6.Size = new System.Drawing.Size(268, 36);
             this.button6.TabIndex = 12;
             this.button6.Text = "Tamaño";
             this.button6.UseVisualStyleBackColor = true;
@@ -147,9 +147,9 @@
             // 
             this.button5.Cursor = System.Windows.Forms.Cursors.No;
             this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.Location = new System.Drawing.Point(3, 52);
+            this.button5.Location = new System.Drawing.Point(3, 45);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(268, 43);
+            this.button5.Size = new System.Drawing.Size(268, 36);
             this.button5.TabIndex = 0;
             this.button5.Text = "Opciones";
             this.button5.UseVisualStyleBackColor = true;
@@ -175,7 +175,7 @@
             "17x17",
             "18x18",
             "19x19"});
-            this.comboBox1.Location = new System.Drawing.Point(3, 150);
+            this.comboBox1.Location = new System.Drawing.Point(3, 129);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(268, 21);
             this.comboBox1.TabIndex = 13;
@@ -184,9 +184,9 @@
             // button4
             // 
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(3, 536);
+            this.button4.Location = new System.Drawing.Point(3, 459);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(268, 43);
+            this.button4.Size = new System.Drawing.Size(268, 36);
             this.button4.TabIndex = 13;
             this.button4.Text = "Cargar Archivo";
             this.button4.UseVisualStyleBackColor = true;
@@ -207,14 +207,14 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 857);
+            this.ClientSize = new System.Drawing.Size(280, 737);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Location = new System.Drawing.Point(0, 40);
             this.MaximumSize = new System.Drawing.Size(300, 900);
-            this.MinimumSize = new System.Drawing.Size(300, 900);
+            this.MinimumSize = new System.Drawing.Size(300, 766);
             this.Name = "Interfaz";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Killer Sudoku";
