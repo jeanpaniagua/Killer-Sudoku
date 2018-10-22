@@ -43,15 +43,34 @@ namespace Killer_Sudoku.Clases
                 }
                 else if (pos == 3)
                 {
+                    sol[3] = i;
                     int res = 0;
-                    for(int j = 0; j < 4; j++)
+                    if (reg.getOperador() == '+')
                     {
-                        res += sol[j];
+                        for (int j = 0; j < 4; j++)
+                        {
+                            res += sol[j];
+                        }
+                    }
+                    else if (reg.getOperador() == 'X')
+                    {
+                        res = 1;
+                        for (int j = 0; j < 4; j++)
+                        {
+                            res = res * sol[j];
+                        }
                     }
                     if (reg.getResultado() == res)
                     {
                         success = true;
                         break;
+                    }
+                    else
+                    {
+                        if (reg.getResultado() < res)
+                        {
+                            break;
+                        }
                     }
                 }
             }
