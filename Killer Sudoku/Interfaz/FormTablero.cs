@@ -91,7 +91,7 @@ namespace Killer_Sudoku
 
                         var label2 = new Label();
 
-                        Console.WriteLine(Program.casillas[i, j].getResultado());
+                        //Console.WriteLine(Program.casillas[i, j].getResultado());
 
                         if (Program.casillas[i, j].getValor() > 0)
                         {

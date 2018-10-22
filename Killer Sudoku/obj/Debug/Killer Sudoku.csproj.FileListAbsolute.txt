@@ -20,3 +20,14 @@ C:\Users\Psicops\Documents\GitHub\Killer-Sudoku\Killer Sudoku\obj\Debug\Killer S
 C:\Users\Psicops\Documents\GitHub\Killer-Sudoku\Killer Sudoku\bin\Debug\Killer Sudoku.exe.config
 C:\Users\Psicops\Documents\GitHub\Killer-Sudoku\Killer Sudoku\bin\Debug\Killer Sudoku.exe
 C:\Users\Psicops\Documents\GitHub\Killer-Sudoku\Killer Sudoku\bin\Debug\Killer Sudoku.pdb
+C:\Users\curso\Desktop\Killer-Sudoku-master\Killer Sudoku\bin\Debug\Killer Sudoku.exe.config
+C:\Users\curso\Desktop\Killer-Sudoku-master\Killer Sudoku\bin\Debug\Killer Sudoku.exe
+C:\Users\curso\Desktop\Killer-Sudoku-master\Killer Sudoku\bin\Debug\Killer Sudoku.pdb
+C:\Users\curso\Desktop\Killer-Sudoku-master\Killer Sudoku\obj\Debug\Killer Sudoku.csprojAssemblyReference.cache
+C:\Users\curso\Desktop\Killer-Sudoku-master\Killer Sudoku\obj\Debug\Killer_Sudoku.FormTablero.resources
+C:\Users\curso\Desktop\Killer-Sudoku-master\Killer Sudoku\obj\Debug\Killer_Sudoku.Interfaz.resources
+C:\Users\curso\Desktop\Killer-Sudoku-master\Killer Sudoku\obj\Debug\Killer_Sudoku.Properties.Resources.resources
+C:\Users\curso\Desktop\Killer-Sudoku-master\Killer Sudoku\obj\Debug\Killer Sudoku.csproj.GenerateResource.cache
+C:\Users\curso\Desktop\Killer-Sudoku-master\Killer Sudoku\obj\Debug\Killer Sudoku.csproj.CoreCompileInputs.cache
+C:\Users\curso\Desktop\Killer-Sudoku-master\Killer Sudoku\obj\Debug\Killer Sudoku.exe
+C:\Users\curso\Desktop\Killer-Sudoku-master\Killer Sudoku\obj\Debug\Killer Sudoku.pdb

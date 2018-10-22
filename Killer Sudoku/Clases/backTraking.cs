@@ -10,6 +10,7 @@ namespace Killer_Sudoku.Clases
     {
 
         private byte tam;
+        private List<region> regSolucion = new List<region>();
 
         public backTraking(byte tamanho)
         {
@@ -22,51 +23,52 @@ namespace Killer_Sudoku.Clases
             {
                 if (reg.getPieza()[1] == null)
                 {
-                    reg.getPieza()[0].setValor(reg.getResultado());
+                    int[] solved = new int[4];
+                    solved[0] = reg.getResultado();
+                    reg.soluciones.Add(solved);
                 }
                 else
                 {
                     int[] solucion = new int[4];
-                    Console.WriteLine("Va a entrar.");
                     backTrack(reg, solucion, 0);
-                    Console.WriteLine("Sale.");
-                    imprime(reg);
-                    break;//Este se elimina, lo puse para que lo hiciera con una sola región....
+                    //imprime(reg);
                 }
             }
+            int[,] mPrueba = new int[tam, tam];
+            //resuelveBT(mPrueba, regList, 0);
         }
 
-        public void imprime(region reg)
+        private void imprime(region reg) //imprime todas las soluciones posibles de una region
         {
-            Console.WriteLine("imprime");
+            Console.WriteLine("Cantidad de soluciones: " + reg.soluciones.Count);
             foreach (int[] obj in reg.soluciones)
             {
-                Console.WriteLine("Entra 4E");
                 Console.WriteLine("Solución para " + reg.getOperador() + " " + reg.getResultado() + ":");
-                Console.WriteLine(obj[0] + ", " + obj[1] + ", " + obj[2] + ", "+ obj[3] + ".");
+                Console.WriteLine(obj[0] + ", " + obj[1] + ", " + obj[2] + ", " + obj[3] + ".");
             }
         }
 
-        public Boolean backTrack(region reg, int[] sol, int pos)
+        private void backTrack(region reg, int[] sol, int pos)
         {
             for(int i = 1; i <= tam; i++)
             {
-                Console.WriteLine("Entra con pos = " + pos + ", i = " + i);
                 if (i >= reg.getResultado())
                 {
                     break;
                 }
                 else if (pos == 3)
                 {
-                    sol[3] = i;
+                    int[] newSolution = new int[4];
+                    sol[pos] = i;
                     int res = 0;
                     if (reg.getOperador() == '+')
                     {
                         for (int j = 0; j < 4; j++)
                         {
                             res += sol[j];
+                            newSolution[j] = sol[j];
                         }
-                        Console.WriteLine("Operador +; res = " + res + ", RES " + reg.getResultado());
+                        //Console.WriteLine("Operador +; res = " + res + ", RES " + reg.getResultado());
                     }
                     else if (reg.getOperador() == 'X')
                     {
@@ -74,18 +76,19 @@ namespace Killer_Sudoku.Clases
                         for (int j = 0; j < 4; j++)
                         {
                             res = res * sol[j];
+                            newSolution[j] = sol[j];
                         }
-                        Console.WriteLine("Operador X; res = " + res + ", RES " + reg.getResultado());
+                        //Console.WriteLine("Operador X; res = " + res + ", RES " + reg.getResultado());
                     }
                     if (reg.getResultado() == res)
                     {
-                        Console.WriteLine("Check");
-                        for(int x = 0; x < 4; x++)
-                        {
-                            Console.Write(sol[0] + ", ");
-                        }
-                        reg.soluciones.Add(sol);
-                        return true;
+                        //Console.WriteLine("Check");
+                        //for(int x = 0; x < 4; x++)
+                        //{
+                        //    Console.Write(newSolution[x] + ", ");
+                        //}
+                        reg.soluciones.Add(newSolution);
+                        break;
                     }
                     else if (reg.getResultado() < res)
                     {
@@ -96,13 +99,62 @@ namespace Killer_Sudoku.Clases
                 {
                     if (pos < 3)
                     {
-                        Console.WriteLine("pos = " + pos + ", i = " + i);
+                        //Console.WriteLine("pos = " + pos + ", i = " + i);
                         sol[pos] = i;
                         backTrack(reg, sol, (pos+1));
                     }
                 }
             }
-            return false;
+        }
+
+        private Boolean resuelveBT(int[,] mPrueba, List<region> regList, int pos)
+        {
+            region reg = regList[pos];
+            int next = 0;
+            for(int i = 0; i < reg.soluciones.Count; i++)
+            {
+                foreach (Coords cord in reg.getPieza())
+                {
+                    if(cord != null)
+                    {
+                        mPrueba[cord.getX(), cord.getY()] = reg.soluciones[i][next];
+                        if(!checker(mPrueba, cord))
+                        {
+                            break;
+                        }
+                    }
+                }
+                if(resuelveBT(mPrueba, regList, (pos + 1)))
+                {
+                    return true;
+                }
+            }
+            return true;
+        }
+
+        private Boolean checker(int[,] mPrueba, Coords cord)
+        {
+            for(int i = 0; i < tam; i++)
+            {
+                if (i == cord.getX())
+                    continue;
+                if(mPrueba[i,cord.getY()] != null)
+                {
+                    if (mPrueba[i, cord.getY()] == mPrueba[cord.getX(), cord.getY()])
+                        return false;
+                }
+            }
+            for (int i = 0; i < tam; i++)
+            {
+                if (i == cord.getY())
+                    continue;
+                if (mPrueba[cord.getX(), i] != null)
+                {
+                    if (mPrueba[cord.getX(), i] == mPrueba[cord.getX(), cord.getY()])
+                        return false;
+                }
+            }
+            return true;
         }
 
     }
