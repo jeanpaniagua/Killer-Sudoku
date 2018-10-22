@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,15 +10,18 @@ namespace Killer_Sudoku
 {
     class region
     {
+        private int tipoPieza;
         private Coords[] pieza;
         private char operador;
         private int resultado;
         private Color color;
         private static Random aleatorio = new Random();
+        public ArrayList soluciones = new ArrayList();
 
         public region(int checker, Coords pos, byte rot)
         {
             pieza = new Piezas(checker, pos.getX(), pos.getY(), rot).getPieza();
+            tipoPieza = checker;
             operador = '+';
             resultado = 0;
             color = Color.FromArgb(aleatorio.Next(100, 255), aleatorio.Next(100, 255), aleatorio.Next(100, 255));
@@ -30,7 +34,10 @@ namespace Killer_Sudoku
             color = Color.FromArgb(aleatorio.Next(100, 255), aleatorio.Next(100, 255), aleatorio.Next(100, 255));
         }
 
-
+        public int getTipoPieza()
+        {
+            return this.tipoPieza;
+        }
 
         public Coords[] getPieza()
         {
