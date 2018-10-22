@@ -80,6 +80,10 @@ namespace Killer_Sudoku.Clases
                     if (reg.getResultado() == res)
                     {
                         Console.WriteLine("Check");
+                        for(int x = 0; x < 4; x++)
+                        {
+                            Console.Write(sol[0] + ", ");
+                        }
                         reg.soluciones.Add(sol);
                         return true;
                     }
@@ -92,9 +96,9 @@ namespace Killer_Sudoku.Clases
                 {
                     if (pos < 3)
                     {
-                        Console.WriteLine("pos < 3; pos = " + pos++);
+                        Console.WriteLine("pos = " + pos + ", i = " + i);
                         sol[pos] = i;
-                        backTrack(reg, sol, pos++);
+                        backTrack(reg, sol, (pos+1));
                     }
                 }
             }
