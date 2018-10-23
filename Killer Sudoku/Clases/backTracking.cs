@@ -239,27 +239,28 @@ namespace Killer_Sudoku.Clases
             }
         }
 
+        private Boolean llenarRegion(int[] solucion, Coords[] cord)
+        {
+            int next = 0;
+            foreach (Coords cords in cord)
+            {
+                mPrueba[cords.getX(), cords.getY()] = solucion[next];
+                if (!checker(mPrueba, cords))
+                {
+                    cleaner(cord);
+                    return false;
+                }
+                next = next + 1;
+            }
+            return true;
+        }
+
         private Boolean resuelveBT(List<region> regList, int pos)
         {
             region reg = regList[pos];
-            //for (int i = 0; i < reg.soluciones.Count; i++)
             foreach(int[] solucion in reg.soluciones)
             {
-                Boolean pasa = true;
-                int next = 0;
-                foreach (Coords cord in reg.getPieza())
-                {
-                    mPrueba[cord.getX(), cord.getY()] = solucion[next];
-                    //aux();
-                    if (!checker(mPrueba, cord))
-                    {
-                        cleaner(reg.getPieza());
-                        pasa = false;
-                        break;
-                    }
-                    next = next + 1;
-                }
-                if (pasa)
+                if (llenarRegion(solucion, reg.getPieza()))
                 {
                     if (pos < (regList.Count - 1))
                     {
@@ -268,6 +269,10 @@ namespace Killer_Sudoku.Clases
                             mFinal = mPrueba;
                             return true;
                         }
+                    }
+                    else
+                    {
+                        return true;
                     }
                 }
             }
