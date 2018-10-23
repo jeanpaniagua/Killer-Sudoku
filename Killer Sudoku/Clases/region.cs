@@ -16,7 +16,8 @@ namespace Killer_Sudoku
         private Color color;
         private static Random aleatorio = new Random();
         public List<int[]> soluciones = new List<int[]>();
-        public int next = 0;
+        public int tPieza;
+        public int tRot;
 
         public region(int checker, Coords pos, byte rot)
         {
@@ -24,6 +25,8 @@ namespace Killer_Sudoku
             operador = '+';
             resultado = 0;
             color = Color.FromArgb(aleatorio.Next(100, 255), aleatorio.Next(100, 255), aleatorio.Next(100, 255));
+            tPieza = checker;
+            tRot = rot;
         }
         public region(char operador, int resultado, Coords[] pieza)
         {
