@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\backTraking.cs" />
+    <Compile Include="Clases\backTracking.cs" />
     <Compile Include="Clases\casilla.cs" />
     <Compile Include="Clases\Coords.cs" />
     <Compile Include="Interfaz\FormTablero.cs">

@@ -149,7 +149,7 @@ namespace Killer_Sudoku
 
             //Esto es para revisar si funciona bien....
             Console.WriteLine("Backtracking:");
-            backTraking bT = new backTraking(tamanho);
+            backTracking bT = new backTracking(tamanho);
             bT.resuelveReg(Program.tablero.regiones);
 
         }
