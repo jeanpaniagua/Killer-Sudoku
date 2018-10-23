@@ -43,6 +43,7 @@ namespace Killer_Sudoku.Clases
 
             agregaPistas();
             resuelveBT(regList, 0);
+            aux();
             //imprimeMFinal();
         }
 
@@ -241,27 +242,25 @@ namespace Killer_Sudoku.Clases
         private Boolean resuelveBT(List<region> regList, int pos)
         {
             region reg = regList[pos];
-            for (int i = 0; i < reg.soluciones.Count; i++)
+            //for (int i = 0; i < reg.soluciones.Count; i++)
+            foreach(int[] solucion in reg.soluciones)
             {
                 Boolean pasa = true;
                 int next = 0;
                 foreach (Coords cord in reg.getPieza())
                 {
-                    mPrueba[cord.getX(), cord.getY()] = reg.soluciones[i][next];
-                    aux();
+                    mPrueba[cord.getX(), cord.getY()] = solucion[next];
+                    //aux();
                     if (!checker(mPrueba, cord))
                     {
-                        Console.WriteLine("No calza");
                         cleaner(reg.getPieza());
                         pasa = false;
                         break;
                     }
-                    Console.WriteLine("Calza");
                     next = next + 1;
                 }
                 if (pasa)
                 {
-                    //next = 0;
                     if (pos < (regList.Count - 1))
                     {
                         if (resuelveBT(regList, (pos + 1)))
