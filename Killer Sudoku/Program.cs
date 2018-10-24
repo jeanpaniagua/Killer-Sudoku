@@ -12,6 +12,7 @@ namespace Killer_Sudoku
         public static byte tamanho = 0;
         public static casilla[,] casillas;
         public static tablero tablero;
+        public static List<region> pistas = new List<region>();
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -42,6 +43,22 @@ namespace Killer_Sudoku
                 {
                     String linea = reg.getOperador().ToString() + "," + reg.getResultado().ToString();
 
+                    if (reg != null)
+                    {
+                        foreach (Coords cord in reg.getPieza())
+                        {
+                            if (cord != null)
+                            {
+                                linea = linea + "," + cord.getX().ToString() + "," + cord.getY().ToString();
+                            }
+                        }
+                    }
+                    sw.WriteLine(linea);
+                }
+
+                foreach(region reg in pistas)
+                {
+                    String linea = reg.getOperador().ToString() + "," + reg.getResultado().ToString();
                     if (reg != null)
                     {
                         foreach (Coords cord in reg.getPieza())

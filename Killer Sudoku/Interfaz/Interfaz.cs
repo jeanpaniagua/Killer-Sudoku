@@ -181,6 +181,10 @@ namespace Killer_Sudoku
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+
+            backTracking bT = new backTracking(Program.tamanho);
+            bT.resuelveReg(Program.tablero.regiones);
+
             btnResolver.Enabled = false;
 
             try

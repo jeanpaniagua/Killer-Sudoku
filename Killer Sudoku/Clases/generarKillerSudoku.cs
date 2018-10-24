@@ -1,4 +1,4 @@
-﻿using Killer_Sudoku.Clases;
+﻿using Killer_Sudoku;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -146,11 +146,6 @@ namespace Killer_Sudoku
                     Program.casillas[reg.getPieza()[0].getX(), reg.getPieza()[0].getY()].setResultado(reg.getResultado());
                 }
             }
-
-            //Esto es para revisar si funciona bien....
-            Console.WriteLine("Backtracking:");
-            backTracking bT = new backTracking(tamanho);
-            bT.resuelveReg(Program.tablero.regiones);
 
         }
     }

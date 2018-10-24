@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Killer_Sudoku.Clases
+namespace Killer_Sudoku
 {
     class backTracking
     {
         private byte tam;
-        private List<region> pistas = new List<region>();
+        
         private int[,] mFinal;
         private int[,] mPrueba;
 
@@ -26,7 +26,7 @@ namespace Killer_Sudoku.Clases
             {
                 if (reg.getPieza()[1] == null)
                 {
-                    pistas.Add(reg);
+                    Program.pistas.Add(reg);
                 }
                 else
                 {
@@ -36,7 +36,7 @@ namespace Killer_Sudoku.Clases
                 }
             }
 
-            foreach (region reg in pistas)
+            foreach (region reg in Program.pistas)
             {
                 regList.Remove(reg); //Elimina las pistas de la lista de regiones
             }
@@ -212,7 +212,7 @@ namespace Killer_Sudoku.Clases
 
         private void agregaPistas()
         {
-            foreach(region reg in pistas)
+            foreach(region reg in Program.pistas)
             {
                 mPrueba[reg.getPieza()[0].getX(), reg.getPieza()[0].getY()] = reg.getResultado();
             }
@@ -225,6 +225,15 @@ namespace Killer_Sudoku.Clases
             {
                 for (int j = 0; j < tam; j++)
                 {
+                    if (Program.casillas[i, j] == null)
+                    {
+                        Program.casillas[i, j] = new casilla((byte)mPrueba[i, j]);
+                    }
+                    else
+                    {
+                        Program.casillas[i, j].setValor((byte)mPrueba[i, j]);
+                    }
+                    
                     Console.Write(mPrueba[i, j] + " ");
                 }
                 Console.WriteLine("");
