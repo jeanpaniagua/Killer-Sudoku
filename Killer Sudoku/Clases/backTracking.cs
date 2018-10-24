@@ -10,13 +10,11 @@ namespace Killer_Sudoku
     {
         private byte tam;
         
-        private int[,] mFinal;
         private int[,] mPrueba;
 
         public backTracking(byte tamanho)
         {
             this.tam = tamanho;
-            this.mFinal = new int[tamanho, tamanho];
             this.mPrueba = new int[tamanho, tamanho];
         }
 
@@ -42,20 +40,14 @@ namespace Killer_Sudoku
             }
 
             agregaPistas();
-            resuelveBT(regList, 0);
-            aux();
-            //imprimeMFinal();
-        }
-
-        private void imprimeMFinal()
-        {
-            for(int i = 0; i < tam; i++)
+            if(resuelveBT(regList, 0))
             {
-                for(int j = 0; j < tam; j++)
-                {
-                    Console.Write(mFinal[i, j] + " ");
-                }
-                Console.WriteLine("");
+                Console.WriteLine("Resuelto:");
+                aux();
+            }
+            else
+            {
+                Console.WriteLine("Sorry mae, le fallé....");
             }
         }
 
@@ -220,7 +212,6 @@ namespace Killer_Sudoku
 
         private void aux()
         {
-            Console.WriteLine("--------------------");
             for (int i = 0; i < tam; i++)
             {
                 for (int j = 0; j < tam; j++)
@@ -254,7 +245,7 @@ namespace Killer_Sudoku
             foreach (Coords cords in cord)
             {
                 mPrueba[cords.getX(), cords.getY()] = solucion[next];
-                if (!checker(mPrueba, cords))
+                if (!checker(cords))
                 {
                     cleaner(cord);
                     return false;
@@ -267,16 +258,21 @@ namespace Killer_Sudoku
         private Boolean resuelveBT(List<region> regList, int pos)
         {
             region reg = regList[pos];
+            int x = 0;
             foreach(int[] solucion in reg.soluciones)
             {
+                //Console.WriteLine("En la pos " + pos + " con solucion #" + x + " de " + reg.soluciones.Count);
                 if (llenarRegion(solucion, reg.getPieza()))
                 {
-                    if (pos < (regList.Count - 1))
+                    if (pos < (regList.Count-1))
                     {
                         if (resuelveBT(regList, (pos + 1)))
                         {
-                            mFinal = mPrueba;
                             return true;
+                        }
+                        else
+                        {
+                            cleaner(reg.getPieza());
                         }
                     }
                     else
@@ -284,11 +280,12 @@ namespace Killer_Sudoku
                         return true;
                     }
                 }
+                x = x + 1;
             }
             return false;
         }
 
-        private Boolean checker(int[,] mPrueba, Coords cord)
+        private Boolean checker(Coords cord)
         {
             for(int i = 0; i < tam; i++)
             {
